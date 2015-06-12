@@ -78,4 +78,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.secret_key_base = ENV["SECRET_KEY_BASE"]
+  config.twitter_api_key = ENV["TWITTER_API_KEY"]
+  config.twitter_api_secret = ENV["TWITTER_API_SECRET"]
 end
