@@ -13,17 +13,19 @@ class RantsController < ApplicationController
   end
 
   def create
-    @rant = Rant.new(rant_params)
-    @rant.user_id = current_user.id
-    @rant.save
+    begin
+      @rant = Rant.new(rant_params)
+      @rant.user_id = current_user.id
+      @rant.save
 
-  rescue Twitter::Error => e
-    flash[:errors] = e.message
-    redirect_to new_rant_path
-    return
+      respond_to do |format|
+        format.html { redirect_to root_path }
+      end
 
-    respond_to do |format|
-      format.html { redirect_to root_path }
+      rescue Twitter::Error => e
+        flash[:errors] = e.message
+        redirect_to new_rant_path
+      return
     end
   end
 
