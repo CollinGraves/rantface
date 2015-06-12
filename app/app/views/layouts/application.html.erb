@@ -9,6 +9,8 @@
 <body>
 <% if current_user %>
   <p>Signed in as <%= current_user.nickname %></p>
+<% else %>
+  <a <%= link_to '/auth/twitter'%> ><p>Login with Twitter</p></a>
 <% end %>
 <%= yield %>
 
