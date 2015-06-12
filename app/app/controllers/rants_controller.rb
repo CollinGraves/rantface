@@ -17,6 +17,11 @@ class RantsController < ApplicationController
     @rant.user_id = current_user.id
     @rant.save
 
+  rescue Twitter::Error => e
+    flash[:errors] = e.message
+    redirect_to new_rant_path
+    return
+
     respond_to do |format|
       format.html { redirect_to root_path }
     end
@@ -25,7 +30,7 @@ class RantsController < ApplicationController
   private
 
   def set_rant
-      @rant = Rant.find(params[:id])
+    @rant = Rant.find(params[:id])
   end
 
   def rant_params

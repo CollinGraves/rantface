@@ -8,6 +8,11 @@
 </head>
 <body>
 <%= render "partials/navbar" %>
+<% if flash.any? %>
+  <% flash.each do |msg| -%>
+    <%= content_tag :div, msg %>
+  <% end -%>
+<% end %>
 
 <%= yield %>
 
