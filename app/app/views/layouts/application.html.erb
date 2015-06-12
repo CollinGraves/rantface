@@ -7,9 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% if current_user %>
-  <p>Signed in as <%= current_user.nickname %></p>
-<% end %>
+<%= render "partials/navbar" %>
+
 <%= yield %>
 
 </body>
