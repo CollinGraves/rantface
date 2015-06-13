@@ -8,13 +8,11 @@
 </head>
 <body>
 <%= render "partials/navbar" %>
-<% if flash.any? %>
-  <% flash.each do |msg| -%>
-    <%= content_tag :div, msg %>
-  <% end -%>
-<% end %>
+<%= render partial: "shared/flash_messages", flash: flash %>
 
-<%= yield %>
+<div class="container">
+  <%= yield %>
+</div>
 
 </body>
 </html>

@@ -12,10 +12,9 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
+    <%= f.text_area :body, rows: 10, placeholder: "Type your rant here and we'll handle the rest. Make sure you've logged in! (Your Twitter handle will be in the upper-right corner)" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Rant!', class: 'btn btn-primary'  %>
   </div>
 <% end %>
