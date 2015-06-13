@@ -19,6 +19,7 @@ gem 'twitter'
 gem 'rails_12factor'
 
 gem 'newrelic_rpm'
+gem 'hirefire-resource'
 
 group :development, :test do
   gem 'byebug'
