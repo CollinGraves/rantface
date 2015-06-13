@@ -5,6 +5,11 @@ class SessionsController < ApplicationController
     redirect_to new_rant_path
   end
 
+  def destroy
+    reset_session
+    redirect_to root_path
+  end
+
   protected
 
   def auth_hash
