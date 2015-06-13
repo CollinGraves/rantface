@@ -7,6 +7,10 @@ class Rant < ActiveRecord::Base
 
   def post_to_twitter
     # This will make call to RantReverse service
-    user.twitter.update(body)
+    final_arr = RantReverse.call body
+
+    final_arr.each do |body|
+      user.twitter.update body
+    end
   end
 end
