@@ -17,9 +17,11 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'twitter'
 gem 'rails_12factor'
+gem 'resque'
 
 gem 'newrelic_rpm'
 gem 'hirefire-resource'
+gem 'mixpanel'
 
 group :development, :test do
   gem 'byebug'
