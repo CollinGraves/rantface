@@ -8,7 +8,7 @@ class RantReverse
     def call(str)
       finished_str = add_trailing_space str
 
-      finished_str.concat "(!#{@counter}/#{@total_number})"
+      finished_str.concat "(#{@counter}/#{@total_number})"
 
       @counter -= 1
 
