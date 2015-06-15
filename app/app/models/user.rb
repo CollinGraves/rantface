@@ -16,8 +16,13 @@ class User < ActiveRecord::Base
 
   def twitter
     @client ||= Twitter::REST::Client.new do |config|
-      config.consumer_key = Rails.application.secrets.twitter_api_key || Rails.application.config.twitter_api_key
-      config.consumer_secret = Rails.application.secrets.twitter_api_secret || Rails.application.config.twitter_api_secret
+      if Rails.env.development? || Rails.env.test?
+        config.consumer_key = Rails.application.secrets.twitter_api_key
+        config.consumer_secret = Rails.application.secrets.twitter_api_secret
+      else
+        config.consumer_key = ENV["TWITTER_API_KEY"]
+        config.consumer_secret = ENV["TWITTER_API_SECRET"]
+      end
       config.access_token = token
       config.access_token_secret = secret
     end
